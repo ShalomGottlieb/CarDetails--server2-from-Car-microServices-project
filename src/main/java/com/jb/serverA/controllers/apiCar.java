@@ -30,8 +30,7 @@ public class apiCar {
         Car response = restTemplate.getForObject(carUrl+carNumber,Car.class);
        // System.out.println(response);
         //restTemplate -> handicap
-        if(response!=null)
-        {
+        if(response!=null) {
             response.setHandiCap(restTemplate.getForObject(handiCapUrl+carNumber,String.class).equals("TRUE"));
             response.setRecallDetails(restTemplate.getForEntity(recallUrl+carNumber,RecallDetails[].class).getBody());
             response.setOffRoad(restTemplate.getForObject(offRoadUrl+carNumber,String.class).equals("TRUE"));
